@@ -1839,11 +1839,13 @@ menu() {
     echo -e "  ${GREEN}0.${PLAIN}   退出"
     echo -n " 当前状态："
     statusText
+    
+    answer=8
+    
     echo 
 
     read -t 3 -p " 请选择操作[0-17]：" answer
     
-    answer=8
     
     case $answer in
         0)
