@@ -259,7 +259,7 @@ getData() {
         echo " "
         
         
-    ${answer,,}="y";
+    $answer="y";
         
         
         
