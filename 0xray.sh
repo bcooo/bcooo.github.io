@@ -363,7 +363,7 @@ getData() {
     if [[ "$XTLS" = "true" ]]; then
         echo ""
         colorEcho $BLUE " 请选择流控模式:" 
-        echo -e "   1) xtls-rprx-direct [$RED推荐$PLAIN]"
+        echo "   1) xtls-rprx-direct [$RED推荐$PLAIN]"
         echo "   2) xtls-rprx-origin"
         
         answer=1
