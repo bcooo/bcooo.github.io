@@ -390,7 +390,7 @@ getData() {
         do
            
            
-            WSPATH="/Ws927path"
+            WSPATH="/lujingne"
             
             if [[ -z "${WSPATH}" ]]; then
                 len=`shuf -i5-12 -n1`
@@ -1294,6 +1294,10 @@ EOF
 
 vlessKCPConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1844,7 +1848,7 @@ menu() {
     
     echo 
 
-    read -t 3 -p " 请选择操作[0-17]：" answer
+    read -t 5 -p " 请选择操作[0-17]：" answer
     
     
     case $answer in
