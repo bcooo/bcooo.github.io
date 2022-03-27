@@ -365,7 +365,9 @@ getData() {
         colorEcho $BLUE " 请选择流控模式:" 
         echo -e "   1) xtls-rprx-direct [$RED推荐$PLAIN]"
         echo "   2) xtls-rprx-origin"
-        read -p "  请选择流控模式[默认:direct]" answer
+        
+        answer=1
+        
         [[ -z "$answer" ]] && answer=1
         case $answer in
             1)
@@ -386,7 +388,10 @@ getData() {
         echo ""
         while true
         do
-            read -p " 请输入伪装路径，以/开头(不懂请直接回车)：" WSPATH
+           
+           
+            WSPATH="/Ws927path"
+            
             if [[ -z "${WSPATH}" ]]; then
                 len=`shuf -i5-12 -n1`
                 ws=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $len | head -n 1`
@@ -411,7 +416,11 @@ getData() {
         echo "   3) 美女站(https://imeizi.me)"
         echo "   4) 高清壁纸站(https://bing.imeizi.me)"
         echo "   5) 自定义反代站点(需以http或者https开头)"
-        read -p "  请选择伪装网站类型[默认:高清壁纸站]" answer
+        
+answer=5
+        
+        
+        
         if [[ -z "$answer" ]]; then
             PROXY_URL="https://bing.imeizi.me"
         else
@@ -442,7 +451,10 @@ getData() {
                 PROXY_URL="https://bing.imeizi.me"
                 ;;
             5)
-                read -p " 请输入反代站点(以http或者https开头)：" PROXY_URL
+                echo " 请输入反代站点(以http或者https开头)："
+                
+ PROXY_URL="https://m.zongheng.com"     
+                
                 if [[ -z "$PROXY_URL" ]]; then
                     colorEcho $RED " 请输入反代网站！"
                     exit 1
