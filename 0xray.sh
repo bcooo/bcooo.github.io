@@ -259,7 +259,8 @@ getData() {
         echo " "
         
         
-        answer="y"
+    
+        
         
         
         if [[ "${answer,,}" != "y" ]]; then
