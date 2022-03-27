@@ -257,7 +257,6 @@ getData() {
         colorEcho ${YELLOW} "  2. 伪装域名DNS解析指向当前服务器ip（${IP}）"
         colorEcho ${BLUE} "  3. 如果/root目录下有 xray.pem 和 xray.key 证书密钥文件，无需理会条件2"
         echo " "
-        echo" 确认满足按y，按其他退出脚本："
         
         answer="y"
         
