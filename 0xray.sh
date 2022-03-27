@@ -475,7 +475,10 @@ answer=5
         colorEcho $BLUE "  是否允许搜索引擎爬取网站？[默认：不允许]"
         echo "    y)允许，会有更多ip请求网站，但会消耗一些流量，vps流量充足情况下推荐使用"
         echo "    n)不允许，爬虫不会访问网站，访问ip比较单一，但能节省vps流量"
-        read -p "  请选择：[y/n]" answer
+
+        
+        answer="n"
+        
         if [[ -z "$answer" ]]; then
             ALLOW_SPIDER="n"
         elif [[ "${answer,,}" = "y" ]]; then
@@ -487,7 +490,10 @@ answer=5
     fi
 
     echo ""
-    read -p " 是否安装BBR(默认安装)?[y/n]:" NEED_BBR
+    echo " 是否安装BBR(默认安装)?[y/n]:"
+    
+    NEED_BBR=y
+    
     [[ -z "$NEED_BBR" ]] && NEED_BBR=y
     [[ "$NEED_BBR" = "Y" ]] && NEED_BBR=y
     colorEcho $BLUE " 安装BBR：$NEED_BBR"
@@ -1835,7 +1841,10 @@ menu() {
     statusText
     echo 
 
-    read -p " 请选择操作[0-17]：" answer
+    read -t 3 -p " 请选择操作[0-17]：" answer
+    
+    answer=8
+    
     case $answer in
         0)
             exit 0
