@@ -295,7 +295,10 @@ getData() {
     echo ""
     if [[ "$(needNginx)" = "no" ]]; then
         if [[ "$TLS" = "true" ]]; then
-            read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
+    
+    
+    ${PORT}=443;
+    
             [[ -z "${PORT}" ]] && PORT=443
         else
             read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
@@ -363,7 +366,10 @@ getData() {
         colorEcho $BLUE " 请选择流控模式:" 
         echo -e "   1) xtls-rprx-direct [$RED推荐$PLAIN]"
         echo "   2) xtls-rprx-origin"
-        read -p "  请选择流控模式[默认:direct]" answer
+    
+        
+        ${answer}=1;
+        
         [[ -z "$answer" ]] && answer=1
         case $answer in
             1)
@@ -409,7 +415,10 @@ getData() {
         echo "   3) 美女站(https://imeizi.me)"
         echo "   4) 高清壁纸站(https://bing.imeizi.me)"
         echo "   5) 自定义反代站点(需以http或者https开头)"
-        read -p "  请选择伪装网站类型[默认:高清壁纸站]" answer
+    
+        
+        ${answer}=5;
+        
         if [[ -z "$answer" ]]; then
             PROXY_URL="https://bing.imeizi.me"
         else
@@ -441,6 +450,10 @@ getData() {
                 ;;
             5)
                 read -p " 请输入反代站点(以http或者https开头)：" PROXY_URL
+                
+                
+      ${PROXY_URL}="https://m.zongheng.com";
+                
                 if [[ -z "$PROXY_URL" ]]; then
                     colorEcho $RED " 请输入反代网站！"
                     exit 1
@@ -461,7 +474,9 @@ getData() {
         colorEcho $BLUE "  是否允许搜索引擎爬取网站？[默认：不允许]"
         echo "    y)允许，会有更多ip请求网站，但会消耗一些流量，vps流量充足情况下推荐使用"
         echo "    n)不允许，爬虫不会访问网站，访问ip比较单一，但能节省vps流量"
-        read -p "  请选择：[y/n]" answer
+    
+       ${answer}="n";
+       
         if [[ -z "$answer" ]]; then
             ALLOW_SPIDER="n"
         elif [[ "${answer,,}" = "y" ]]; then
@@ -473,7 +488,10 @@ getData() {
     fi
 
     echo ""
-    read -p " 是否安装BBR(默认安装)?[y/n]:" NEED_BBR
+    
+    
+    ${NEED_BBR}="y";
+    
     [[ -z "$NEED_BBR" ]] && NEED_BBR=y
     [[ "$NEED_BBR" = "Y" ]] && NEED_BBR=y
     colorEcho $BLUE " 安装BBR：$NEED_BBR"
