@@ -351,6 +351,9 @@ getData() {
         esac
         colorEcho $BLUE " 伪装类型：$HEADER_TYPE"
         SEED=`cat /proc/sys/kernel/random/uuid`
+        
+        SEED="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+        
     fi
 
     if [[ "$TROJAN" = "true" ]]; then
@@ -991,6 +994,9 @@ EOF
 
 vmessConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     local alterid=`shuf -i50-80 -n1`
     cat > $CONFIG_FILE<<-EOF
 {
@@ -1021,6 +1027,9 @@ EOF
 
 vmessKCPConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     local alterid=`shuf -i50-80 -n1`
     cat > $CONFIG_FILE<<-EOF
 {
@@ -1063,6 +1072,9 @@ EOF
 
 vmessTLSConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1107,6 +1119,9 @@ EOF
 
 vmessWSConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1147,6 +1162,9 @@ EOF
 
 vlessTLSConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1301,7 +1319,7 @@ EOF
 vlessKCPConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
     
-    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
     
     
     cat > $CONFIG_FILE<<-EOF
