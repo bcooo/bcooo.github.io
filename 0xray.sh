@@ -1844,11 +1844,15 @@ menu() {
     echo -n " 当前状态："
     statusText
     
-    answer=8
     
     echo 
 
-    read -t 5 -p " 请选择操作[0-17]：" answer
+    read -t 10 -p " 请选择操作[0-17]：" answer
+ 
+ if [[ -z "$answer" ]]; then
+ answer=8
+ fi
+    
     
     
     case $answer in
