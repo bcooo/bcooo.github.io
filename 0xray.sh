@@ -1200,6 +1200,9 @@ EOF
 
 vlessXTLSConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1254,6 +1257,9 @@ EOF
 
 vlessWSConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
+    
+    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     cat > $CONFIG_FILE<<-EOF
 {
   "inbounds": [{
@@ -1295,7 +1301,7 @@ EOF
 vlessKCPConfig() {
     local uuid="$(cat '/proc/sys/kernel/random/uuid')"
     
-    uuid="18a2d276-a5b2-46b9-8420-993c1d742f7a"
+    
     
     
     cat > $CONFIG_FILE<<-EOF
