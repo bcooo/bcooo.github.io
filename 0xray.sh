@@ -314,7 +314,7 @@ getData() {
         fi
         colorEcho ${BLUE}  " xray端口：$PORT"
     else
-        echo " 请输入Nginx监听端口[100-65535的一个数字，默认443]：" PORT
+        echo " 请输入Nginx监听端口[100-65535的一个数字，默认443]："
         
         PORT=443
         
