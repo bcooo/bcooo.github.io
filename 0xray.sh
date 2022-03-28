@@ -314,7 +314,10 @@ getData() {
         fi
         colorEcho ${BLUE}  " xray端口：$PORT"
     else
-        read -p " 请输入Nginx监听端口[100-65535的一个数字，默认443]：" PORT
+        echo " 请输入Nginx监听端口[100-65535的一个数字，默认443]：" PORT
+        
+        PORT=443
+        
         [[ -z "${PORT}" ]] && PORT=443
         if [ "${PORT:0:1}" = "0" ]; then
             colorEcho ${BLUE}  " 端口不能以0开头"
