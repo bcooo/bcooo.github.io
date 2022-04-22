@@ -299,7 +299,11 @@ answer="y"
             read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
             [[ -z "${PORT}" ]] && PORT=443
         else
-            read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
+            #read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
+	    
+PORT=443
+
+
             [[ -z "${PORT}" ]] && PORT=`shuf -i200-65000 -n1`
             if [[ "${PORT:0:1}" = "0" ]]; then
                 colorEcho ${RED}  " 端口不能以0开头"
