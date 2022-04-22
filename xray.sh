@@ -487,7 +487,13 @@ if [[ -z "$PROXY_URL" ]]; then
         colorEcho $BLUE "  是否允许搜索引擎爬取网站？[默认：不允许]"
         echo "    y)允许，会有更多ip请求网站，但会消耗一些流量，vps流量充足情况下推荐使用"
         echo "    n)不允许，爬虫不会访问网站，访问ip比较单一，但能节省vps流量"
-        read -p "  请选择：[y/n]" answer
+	
+answer="n"
+
+
+        #read -p "  请选择：[y/n]" answer
+	
+
         if [[ -z "$answer" ]]; then
             ALLOW_SPIDER="n"
         elif [[ "${answer,,}" = "y" ]]; then
@@ -499,7 +505,11 @@ if [[ -z "$PROXY_URL" ]]; then
     fi
 
     echo ""
-    read -p " 是否安装BBR(默认安装)?[y/n]:" NEED_BBR
+    #read -p " 是否安装BBR(默认安装)?[y/n]:" NEED_BBR
+    
+NEED_BBR=y
+
+
     [[ -z "$NEED_BBR" ]] && NEED_BBR=y
     [[ "$NEED_BBR" = "Y" ]] && NEED_BBR=y
     colorEcho $BLUE " 安装BBR：$NEED_BBR"
@@ -1776,6 +1786,12 @@ showInfo() {
             echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
             echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}XTLS${PLAIN}"
+	    
+
+
+echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#xtls"
+
+
         elif [[ "$ws" = "false" ]]; then
             echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
             echo -e " ${BLUE}端口(port)：${PLAIN}${RED}${port}${PLAIN}"
