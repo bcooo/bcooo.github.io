@@ -1808,7 +1808,7 @@ showInfo() {
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}XTLS${PLAIN}"
             
             
-       echo -e "vless://${uid}@${IP}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#xtls"
+       echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#xtls"
             
             
        
