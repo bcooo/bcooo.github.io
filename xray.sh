@@ -398,7 +398,7 @@ answer=1
         while true
         do
 	
-WSPATH="/lujingne"
+#WSPATH="/lujingne"
 
 
             #read -p " 请输入伪装路径，以/开头(不懂请直接回车)：" WSPATH
