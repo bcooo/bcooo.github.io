@@ -296,7 +296,11 @@ answer="y"
     echo ""
     if [[ "$(needNginx)" = "no" ]]; then
         if [[ "$TLS" = "true" ]]; then
-            read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
+            #read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
+	    
+PORT=443
+
+
             [[ -z "${PORT}" ]] && PORT=443
         else
             #read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
@@ -368,6 +372,10 @@ PORT=443
         colorEcho $BLUE " 请选择流控模式:" 
         echo -e "   1) xtls-rprx-direct [$RED推荐$PLAIN]"
         echo "   2) xtls-rprx-origin"
+	
+answer=1
+
+
         read -p "  请选择流控模式[默认:direct]" answer
         [[ -z "$answer" ]] && answer=1
         case $answer in
