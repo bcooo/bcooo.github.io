@@ -1963,8 +1963,8 @@ menu() {
             showLog
             ;;
         *)
-            colorEcho $RED " 请选择正确的操作！"
-            exit 1
+            colorEcho $RED " #请选择正确的操作！"
+           # exit 1
             ;;
     esac
 }
