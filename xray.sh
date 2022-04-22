@@ -1813,6 +1813,10 @@ echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerTy
             echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
             echo -e " ${BLUE}路径(path)：${PLAIN}${RED}${wspath}${PLAIN}"
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
+	    
+echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&path=${wspath}#ws"
+
+
         fi
     fi
 }
