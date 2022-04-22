@@ -257,7 +257,7 @@ getData() {
         colorEcho ${YELLOW} "  2. 伪装域名DNS解析指向当前服务器ip（${IP}）"
         colorEcho ${BLUE} "  3. 如果/root目录下有 xray.pem 和 xray.key 证书密钥文件，无需理会条件2"
         echo " "
-        read -p " 确认满足按y，按其他退出脚本：" answer
+        #read -p " 确认满足按y，按其他退出脚本：" answer
 	
 
 
@@ -376,7 +376,7 @@ PORT=443
 answer=1
 
 
-        read -p "  请选择流控模式[默认:direct]" answer
+   #read -p "  请选择流控模式[默认:direct]" answer
         [[ -z "$answer" ]] && answer=1
         case $answer in
             1)
@@ -463,7 +463,7 @@ answer=5
                 PROXY_URL="https://bing.imeizi.me"
                 ;;
             5)
-                read -p " 请输入反代站点(以http或者https开头)："
+                #read -p " 请输入反代站点(以http或者https开头)："
 		
 PROXY_URL="https://m.zongheng.com"   
 
