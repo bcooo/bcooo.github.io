@@ -1887,15 +1887,7 @@ menu() {
     
     echo 
 
-    read -p " 请选择您的操作[0-17]：" answer
- #3600秒不输入自动选择8
- #if [[ -z "$answer" ]]; then
- #answer=8
- #fi
-
-            
-            
-    
+    read -p " 请选择操作吧[0-17]：" answer
     case $answer in
         0)
             exit 0
