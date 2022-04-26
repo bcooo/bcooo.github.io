@@ -1789,7 +1789,7 @@ showInfo() {
 	    
 
 
-echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#xtls"
+echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#${domain}"
 
 
         elif [[ "$ws" = "false" ]]; then
@@ -1814,7 +1814,7 @@ echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerTy
             echo -e " ${BLUE}路径(path)：${PLAIN}${RED}${wspath}${PLAIN}"
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
 	    
-echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&path=${wspath}#ws"
+echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&path=${wspath}#ws_${domain}"
 
 
         fi
