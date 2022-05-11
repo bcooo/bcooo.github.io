@@ -1881,8 +1881,10 @@ echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerTy
 curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
         source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
-service nginx start
-systemctl restart xray
+stopNginx
+    startNginx
+    systemctl restart xray
+    sleep 2
 
         elif [[ "$ws" = "false" ]]; then
             echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
