@@ -1878,7 +1878,8 @@ renew() {
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}XTLS${PLAIN}"
 
 echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#${domain}"
-
+curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
+        source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
 service nginx start
 systemctl restart xray
