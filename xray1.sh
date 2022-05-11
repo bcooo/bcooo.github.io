@@ -1882,33 +1882,7 @@ curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
         source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
 restart
-            ;;
-        elif [[ "$ws" = "false" ]]; then
-            echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
-            echo -e " ${BLUE}端口(port)：${PLAIN}${RED}${port}${PLAIN}"
-            echo -e " ${BLUE}id(uuid)：${PLAIN}${RED}${uid}${PLAIN}"
-            echo -e " ${BLUE}流控(flow)：${PLAIN}$RED$flow${PLAIN}"
-            echo -e " ${BLUE}加密(encryption)：${PLAIN} ${RED}none${PLAIN}"
-            echo -e " ${BLUE}传输协议(network)：${PLAIN} ${RED}${network}${PLAIN}" 
-            echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
-            echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
-            echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
-        else
-            echo -e " ${BLUE}IP(address): ${PLAIN} ${RED}${IP}${PLAIN}"
-            echo -e " ${BLUE}端口(port)：${PLAIN}${RED}${port}${PLAIN}"
-            echo -e " ${BLUE}id(uuid)：${PLAIN}${RED}${uid}${PLAIN}"
-            echo -e " ${BLUE}流控(flow)：${PLAIN}$RED$flow${PLAIN}"
-            echo -e " ${BLUE}加密(encryption)：${PLAIN} ${RED}none${PLAIN}"
-            echo -e " ${BLUE}传输协议(network)：${PLAIN} ${RED}${network}${PLAIN}" 
-            echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
-            echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
-            echo -e " ${BLUE}路径(path)：${PLAIN}${RED}${wspath}${PLAIN}"
-            echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
-	    
-echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&path=${wspath}#ws_${domain}"
-
-
-        fi
+        
     fi
 }
 #更新证书
