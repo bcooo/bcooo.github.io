@@ -2037,7 +2037,7 @@ menu() {
             showLog
             ;;
             
-        17)
+        18)
             renew
             ;;    
         *)
