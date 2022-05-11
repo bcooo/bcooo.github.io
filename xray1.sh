@@ -1882,7 +1882,7 @@ showInfo() {
 echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#${domain}"
 source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
-restart
+restart()
 
         elif [[ "$ws" = "false" ]]; then
             echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
