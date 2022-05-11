@@ -1823,7 +1823,7 @@ echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&p
 
 #更新证书
 
-renew() {
+showInfo() {
     res=`status`
     if [[ $res -lt 2 ]]; then
         colorEcho $RED " Xray未安装，请先安装！"
@@ -1876,13 +1876,40 @@ renew() {
             echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
             echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
             echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}XTLS${PLAIN}"
+	    
+
 
 echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#${domain}"
-curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
-        source ~/.bashrc
+source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
 restart
-        
+
+        elif [[ "$ws" = "false" ]]; then
+            echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
+            echo -e " ${BLUE}端口(port)：${PLAIN}${RED}${port}${PLAIN}"
+            echo -e " ${BLUE}id(uuid)：${PLAIN}${RED}${uid}${PLAIN}"
+            echo -e " ${BLUE}流控(flow)：${PLAIN}$RED$flow${PLAIN}"
+            echo -e " ${BLUE}加密(encryption)：${PLAIN} ${RED}none${PLAIN}"
+            echo -e " ${BLUE}传输协议(network)：${PLAIN} ${RED}${network}${PLAIN}" 
+            echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
+            echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
+            echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
+        else
+            echo -e " ${BLUE}IP(address): ${PLAIN} ${RED}${IP}${PLAIN}"
+            echo -e " ${BLUE}端口(port)：${PLAIN}${RED}${port}${PLAIN}"
+            echo -e " ${BLUE}id(uuid)：${PLAIN}${RED}${uid}${PLAIN}"
+            echo -e " ${BLUE}流控(flow)：${PLAIN}$RED$flow${PLAIN}"
+            echo -e " ${BLUE}加密(encryption)：${PLAIN} ${RED}none${PLAIN}"
+            echo -e " ${BLUE}传输协议(network)：${PLAIN} ${RED}${network}${PLAIN}" 
+            echo -e " ${BLUE}伪装类型(type)：${PLAIN}${RED}none$PLAIN"
+            echo -e " ${BLUE}伪装域名/主机名(host)/SNI/peer名称：${PLAIN}${RED}${domain}${PLAIN}"
+            echo -e " ${BLUE}路径(path)：${PLAIN}${RED}${wspath}${PLAIN}"
+            echo -e " ${BLUE}底层安全传输(tls)：${PLAIN}${RED}TLS${PLAIN}"
+	    
+echo -e "vless://${uid}@${domain}:${port}?encryption=none&security=tls&type=ws&path=${wspath}#ws_${domain}"
+
+
+        fi
     fi
 }
 #更新证书
@@ -1907,7 +1934,6 @@ menu() {
     echo -e "# ${GREEN}TG群${PLAIN}: https://t.me/hijkclub                               #"
     echo -e "# ${GREEN}Youtube频道${PLAIN}: https://youtube.com/channel/UCYTB--VsObzepVJtc9yvUxQ #"
     echo "#############################################################"
-    echo -e "  ${GREEN}18.${PLAIN}   更新证书"
     echo -e "  ${GREEN}1.${PLAIN}   安装Xray-VMESS"
     echo -e "  ${GREEN}2.${PLAIN}   安装Xray-${BLUE}VMESS+mKCP${PLAIN}"
     echo -e "  ${GREEN}3.${PLAIN}   安装Xray-VMESS+TCP+TLS"
@@ -1928,16 +1954,14 @@ menu() {
     echo " -------------"
     echo -e "  ${GREEN}16.${PLAIN}  查看Xray配置"
     echo -e "  ${GREEN}17.${PLAIN}  查看Xray日志"
+        echo -e "  ${GREEN}18.${PLAIN}  更新证书"
     echo " -------------"
     echo -e "  ${GREEN}0.${PLAIN}   退出"
     echo -n " 当前状态："
     statusText
     echo 
 
-    #read -p " 请选择操作[0-17]：" answer
-    
-    answer=18
-    
+    read -p " 请选择操作[0-17]：" answer
     case $answer in
         0)
             exit 0
@@ -2012,10 +2036,10 @@ menu() {
         17)
             showLog
             ;;
-        18)
-            renew
-            ;;
             
+        17)
+            renew
+            ;;    
         *)
             colorEcho $RED " 请选择正确的操作！"
             exit 1
@@ -2028,16 +2052,11 @@ checkSystem
 action=$1
 [[ -z $1 ]] && action=menu
 case "$action" in
-    menu|update|uninstall|start|restart|stop|showInfo|renew|showLog)
+    menu|update|uninstall|start|restart|stop|showInfo|showLog|renew)
         ${action}
         ;;
     *)
         echo " 参数错误"
-        echo " 用法: `basename $0` [menu|update|uninstall|start|restart|stop|showInfo|renew|showLog]"
+        echo " 用法: `basename $0` [menu|update|uninstall|start|restart|stop|showInfo|showLog|renew]"
         ;;
 esac
-
-
-
-
-
