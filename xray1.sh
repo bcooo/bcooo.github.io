@@ -1879,7 +1879,7 @@ renew() {
 
 echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerType=none&type=${network}&flow=xtls-rprx-direct&sni=${domain}#${domain}"
 
-acme.sh --renew -d ${domain} --ecc --force
+~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
 service nginx start
 systemctl restart xray
 
