@@ -546,6 +546,11 @@ module_hotfixes=true' > /etc/yum.repos.d/nginx.repo
     fi
 }
 
+zscq() {
+service nginx start
+systemctl restart xray
+}
+
 startNginx() {
     if [[ "$BT" = "false" ]]; then
         systemctl start nginx
@@ -1881,10 +1886,7 @@ echo -e "vless://${uid}@${domain}:${port}?security=xtls&encryption=none&headerTy
 curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
         source ~/.bashrc
 ~/.acme.sh/acme.sh --renew -d ${domain} --ecc --force
-stopNginx
-    startNginx
-    systemctl restart xray
-    sleep 2
+zscq()
 
         elif [[ "$ws" = "false" ]]; then
             echo -e " ${BLUE}IP(address):  ${PLAIN}${RED}${IP}${PLAIN}"
