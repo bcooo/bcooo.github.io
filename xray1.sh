@@ -548,8 +548,7 @@ module_hotfixes=true' > /etc/yum.repos.d/nginx.repo
 
 zscq() {
 systemctl restart xray
-stopNginx
-startNginx
+service nginx start
 }
 
 startNginx() {
