@@ -296,9 +296,9 @@ answer="y"
     echo ""
     if [[ "$(needNginx)" = "no" ]]; then
         if [[ "$TLS" = "true" ]]; then
-            #read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
+            read -p " 请输入xray监听端口[强烈建议443，默认443]：" PORT
 	    
-PORT=443
+#PORT=443
 
 
             [[ -z "${PORT}" ]] && PORT=443
