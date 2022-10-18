@@ -303,9 +303,9 @@ answer="y"
 
             [[ -z "${PORT}" ]] && PORT=443
         else
-            #read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
+            read -p " 请输入xray监听端口[100-65535的一个数字]：" PORT
 	    
-PORT=443
+#PORT=443
 
 
             [[ -z "${PORT}" ]] && PORT=`shuf -i200-65000 -n1`
